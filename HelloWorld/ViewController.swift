@@ -10,8 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var mainText: UILabel!
+    
+    @IBOutlet var mainTextInput: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mainTextInput.placeholder = "name";
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -19,7 +25,22 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
-
+    @IBAction func updateView(inputField: UITextField) {
+        mainText.text = "hi " + inputField.text;
+        inputField.text = "";
+    }
+    
+    func reset(){
+        mainText.text = "Enter Your Name";
+        mainTextInput.text = "";
+        mainTextInput.placeholder = "name";
+    }
+    
+    @IBAction func resetView(sender: AnyObject) {
+        reset()
+    }
+    
 }
 
